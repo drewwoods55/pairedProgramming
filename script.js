@@ -37,24 +37,20 @@ console.log(even, odd)
 
 const numArray = [1,2,3,4,5,6,7,8,9,10]
 
-// function checkArray(num){
-//     for(i=2; i < numArray.length; i++){
-//         if(num[i] % 2 === 0){
-//             console.log("prime numbers")
-//         }
-//     }
-// }
-// checkArray(numArray)
-
-const checkArr = numArray.filter((num) => {
-        for(i = 2; i < numArray.length; i++){
-            if(num[i] % 2 === 0){
-                return numArray
-                // console.log("prime numbers")
-            }
+function checkArray(num){
+    for(let i = 2; i < num; i++){
+        if(num % i === 0){
+            return false
         }
-    })
-console.log(checkArr)
+    }
+    return num !== 1;
+}
+console.log(checkArray(19))
+
+
+
+const primes = numArray.filter(checkArray)
+console.log(primes)
 
 // MEDIUM 1 - Create a Function Called “vowelChecker” that takes in a single argument (x) and logs weather or not the input is a vowel
 
@@ -69,12 +65,13 @@ console.log(checkArr)
 // }
 
 function vowelChecker(x) {
-    if(x == 'a' || 'e' || 'i' || 'o' || 'u'){
+    let vowel = x.toLowerCase()
+    if(vowel === 'a' || vowel === 'e' || vowel === 'i' || vowel ==='o' || vowel === 'u'){
         console.log('this is a vowel')
     }else{
         console.log('this is not a vowel')}
 }
-vowelChecker("t")
+vowelChecker("b")
 
 // MEDIUM 2 - Create a function that accepts two strings, then determines whether or not the first string is an anagram of the second string by returning a boolean.
 
@@ -129,7 +126,7 @@ let bigInt = function(x, y) {
 console.log(bigInt(10, 2))
 
 // MEDIUM 4 - Create a car object with the items: Make, Model, Year, Milage, and Color. Then create 3 methods in the object; A driveToWork method, driveAroundTheWorld method, and runErrands method. Each of these methods should affect the car’s mileage adding to it each time and console logging the old mileage and the new mileage.
-
+/*
     let car = {
         make:"Tesla",
         model: "Model-S",
@@ -158,23 +155,23 @@ console.log(bigInt(10, 2))
     driveToWork(car)
     driveAroundTheWorld(car)
     runErrands(car)
-
+*/
 // HARD - Write a function that takes in a string and returns a boolean value whether or not the string contains a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
 
-let textInput = prompt("Please enter in a set of brackets of your choice ex. ( {}, [], () ) ")
-let findBracket = (str) => {
-    let openPos = -1
-    let closePos = -1
-    if (str.indexOf("(") >= 0) {
-        openPos = str.indexOf("(")
-        closePos = str.indexOf(")")
-    } else if (str.indexOf("{") >= 0) {
-        openPos = str.indexOf("{")
-        closePos = str.indexOf("}")
-    } else if (str.indexOf("[") >= 0) {
-        openPos = str.indexOf("[")
-        closePos = str.indexOf("]")
-    }
-    return openPos < closePos
-}
-console.log(findBracket(textInput))
+// let textInput = prompt("Please enter in a set of brackets of your choice ex. ( {}, [], () ) ")
+// let findBracket = (str) => {
+//     let openPos = -1
+//     let closePos = -1
+//     if (str.indexOf("(") >= 0) {
+//         openPos = str.indexOf("(")
+//         closePos = str.indexOf(")")
+//     } else if (str.indexOf("{") >= 0) {
+//         openPos = str.indexOf("{")
+//         closePos = str.indexOf("}")
+//     } else if (str.indexOf("[") >= 0) {
+//         openPos = str.indexOf("[")
+//         closePos = str.indexOf("]")
+//     }
+//     return openPos < closePos
+// }
+// console.log(findBracket(textInput))
