@@ -1,80 +1,82 @@
+// EASY 1 - Write a JavaScript function that takes in a random array and outputs two new arrays of odd numbers and even numbers.
 
-// // Write a JavaScript function that takes in a random array and outputs two new arrays of odd numbers and even numbers.
-// // Example:
-// // Input: [2, 4, 7, 11, 15, 16]
-// // Output: Even numbers: [2, 4, 16]
-// //     Odd Numbers: [7, 11, 15
 // let random = [2, 4, 7, 11, 15, 16]
 // function seperateNum(number) {
 //     let odd = number % 2 === 0;
 // }
 // console.log(seperateNum)
+
 const random = [2, 4, 7, 11, 15, 16];
-const even = random.filter(function(separateNum) {
-    return separateNum % 2 === 0;
-})
-const odd = random.filter(function(separateNum) {
-    return separateNum % 2 === 1;
-})
-console.log(even)
-console.log(odd)
-// // Create a function that checks an array for prime numbers then inserts any pimes into a new array.                              
-// // Example 1:
-// // Input: umArray = n[1,2,3,4,5,6,7,8,9,10]
-// // Output: primeArray = [2,3,5,7]
-// // Example 2:       
-// // Input: numArray = [10, 18, 19, 29, 33, 35, 47, 66, 83]
-// // Output: primeArray = [19 ,29 ,47 , 83]
-const NumArray = [1,2,3,4,5,6,7,8,9,10]
-function checkPrime(num){
-    for(i=2; i<NumArray.length; i++){
-        if (num[i]% i==0){
-            console.log('prime numbers')
-        }
-    }
-}
-checkPrime(6)
+
+// const even = random.filter(function(separateNum) {
+//     return separateNum % 2 === 0;
+// })
+// const odd = random.filter(function(separateNum) {
+//     return separateNum % 2 === 1;
+// })
+
+// console.log(even)
+// console.log(odd)
+
+const even = random.filter((separateNum) => separateNum % 2 === 0);
+const odd = random.filter((separateNum) => separateNum % 2 === 1);
+
+console.log(even, odd)
+
+// EASY 2 - Create a function that checks an array for prime numbers then inserts any pimes into a new array.                              
+
+// const NumArray = [1,2,3,4,5,6,7,8,9,10]
+// function checkPrime(num){
+//     for(i=2; i<NumArray.length; i++){
+//         if (num[i]% i==0){
+//             console.log('prime numbers')
+//         }
+//     }
+// }
+// checkPrime(6)
+
 const numArray = [1,2,3,4,5,6,7,8,9,10]
-function checkArray(num){
-    for(i=2; i < numArray.length; i++){
-        if(num[i] % 2 === 0){
-            console.log("prime numbers")
+
+// function checkArray(num){
+//     for(i=2; i < numArray.length; i++){
+//         if(num[i] % 2 === 0){
+//             console.log("prime numbers")
+//         }
+//     }
+// }
+// checkArray(numArray)
+
+const checkArr = numArray.filter((num) => {
+        for(i = 2; i < numArray.length; i++){
+            if(num[i] % 2 === 0){
+                return numArray
+                // console.log("prime numbers")
+            }
         }
-    }
-}
-checkArray(numArray)
-// // Create a Function Called “vowelChecker” that takes in a single argument (x) and logs weather or not the input is a vowel
-// // Example 1:
-// // Input: vowelChecker(‘b’)
-// // Output: ‘This is not a vowel’
-// // Example 2:
-// // Input: vowelChecker(‘a’)
-// // Output: ‘This is a vowel’
-//function vowelChecker(a)
-function isVowel(char)
-{
-  if (char.length == 1)
-  {
-    let vowels = "aeiou";
-    let isVowel = vowels.indexOf(char) >= 0 ? true : false;
-    return isVowel;
-  }
-}
-function vowelChecker(x){
-    if(x=='a'&& 'e'&& 'i'&&'o'&&'u'){
+    })
+console.log(checkArr)
+
+// MEDIUM 1 - Create a Function Called “vowelChecker” that takes in a single argument (x) and logs weather or not the input is a vowel
+
+// function isVowel(char)
+// {
+//   if (char.length == 1)
+//   {
+//     let vowels = "aeiou";
+//     let isVowel = vowels.indexOf(char) >= 0 ? true : false;
+//     return isVowel;
+//   }
+// }
+
+function vowelChecker(x) {
+    if(x == 'a' || 'e' || 'i' || 'o' || 'u'){
         console.log('this is a vowel')
     }else{console.log('this is not a vowel')}
 }
-console.log(vowelChecker('A'))
-// MEDIUM (2)
-// // Create a function that accepts two strings, then determines whether or not the first string is an anagram of the second string by returning a boolean.
-// // Example:
-// // Input: String 1: So dark the con of man
-// //  String 2: Madonna of the Rocks
-// // Output: True
-// // Input: String 1: Things are good
-// //     String 2: Dogs eat ants
-// // Output: False
+vowelChecker('t')
+
+// MEDIUM 2 - Create a function that accepts two strings, then determines whether or not the first string is an anagram of the second string by returning a boolean.
+
 // function checkString(string1, string2) {
 //     if (string1.length == string2.length){
 //         console.log(`this is an anagram`)
@@ -83,6 +85,7 @@ console.log(vowelChecker('A'))
 //     }
 // }
 // checkString("drew", "werd")
+
 function isAnagram(string1, string2){
     const checkAnagram = function(str){
         return str.toLowerCase().split("").sort().join("")
@@ -90,7 +93,10 @@ function isAnagram(string1, string2){
     return checkAnagram(string1) == checkAnagram(string2)
 }
 console.log(isAnagram("drew","werd"))
-// //Write a function that takes in two numbers and determines the largest positive integer that divides the two numbers without a remainder.
+console.log(isAnagram("drew","word"))
+
+// Medium 3 - Write a function that takes in two numbers and determines the largest positive integer that divides the two numbers without a remainder.
+/*
     function gcd(x,y){
         let answer
         let counter = 1;
@@ -106,7 +112,23 @@ console.log(isAnagram("drew","werd"))
         return answer
     }
 gcd(10,5)
-// //Create a car object with the items: Make, Model, Year, Milage, and Color. Then create 3 methods in the object; A driveToWork method, driveAroundTheWorld method, and runErrands method. Each of these methods should affect the car’s mileage adding to it each time and console logging the old mileage and the new mileage.
+*/
+
+let bigInt = function(x, y) {
+    while( x != y ){
+        if ( x > y){
+            x = x - y
+        }else {
+            y = y - x
+        }
+    }
+    return y
+}
+
+console.log(bigInt(10, 2))
+
+// MEDIUM 4 - Create a car object with the items: Make, Model, Year, Milage, and Color. Then create 3 methods in the object; A driveToWork method, driveAroundTheWorld method, and runErrands method. Each of these methods should affect the car’s mileage adding to it each time and console logging the old mileage and the new mileage.
+
     let car = {
         make:"Tesla",
         model: "Model-S",
@@ -135,7 +157,9 @@ gcd(10,5)
     driveToWork(car)
     driveAroundTheWorld(car)
     runErrands(car)
-// Write a function that takes in a string and returns a boolean value whether or not the string contains a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
+
+// HARD - Write a function that takes in a string and returns a boolean value whether or not the string contains a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
+
 let textInput = prompt("Please enter in a set of brackets of your choice ex. ( {}, [], () ) ")
 let findBracket = (str) => {
     let openPos = -1
