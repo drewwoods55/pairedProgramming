@@ -71,9 +71,10 @@ console.log(checkArr)
 function vowelChecker(x) {
     if(x == 'a' || 'e' || 'i' || 'o' || 'u'){
         console.log('this is a vowel')
-    }else{console.log('this is not a vowel')}
+    }else{
+        console.log('this is not a vowel')}
 }
-vowelChecker('t')
+vowelChecker("t")
 
 // MEDIUM 2 - Create a function that accepts two strings, then determines whether or not the first string is an anagram of the second string by returning a boolean.
 
