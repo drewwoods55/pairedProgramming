@@ -15,16 +15,19 @@
 
 const random = [2, 4, 7, 11, 15, 16];
 
-const even = random.filter(function(separateNum) {
-    return separateNum % 2 === 0;
-})
-const odd = random.filter(function(separateNum) {
-    return separateNum % 2 === 1;
-})
+// const even = random.filter(function(separateNum) {
+//     return separateNum % 2 === 0;
+// })
+// const odd = random.filter(function(separateNum) {
+//     return separateNum % 2 === 1;
+// })
+// console.log(even)
+// console.log(odd)
 
-console.log(even)
-console.log(odd)
+const even = random.filter((separateNum) => separateNum % 2 === 0);
+const odd = random.filter((separateNum) => separateNum % 2 === 1);
 
+console.log(even, odd)
 // Create a function that checks an array for prime numbers then inserts any pimes into a new array.                               
 // Example 1: 
 // Input: umArray = n[1,2,3,4,5,6,7,8,9,10]
