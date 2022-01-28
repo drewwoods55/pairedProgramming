@@ -156,6 +156,50 @@ console.log(bigInt(10, 2))
     driveAroundTheWorld(car)
     runErrands(car)
 */
+
+class Car {
+    constructor(make, model, year, milage, color){
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.milage = 0;
+        this.color = color;
+    }
+    carInfo(){
+        console.log(`You drive a ${this.make} ${this.model} from ${this.year} with ${this.milage} with an awesome color of ${this.color}`)
+    }
+
+    driveToWork(distance){
+        this.milage += distance
+        console.log(`${this.make} ${this.model} has been driven ${distance} miles`)
+        return this
+    }
+
+    driveAroundWorld(distance){
+        this.milage += distance
+        console.log(`${this.make} ${this.model} has been driven ${distance} miles around the world`)
+        return this
+    }
+    runArrands(){
+        this.milage += distance
+        console.log(`${this.make} ${this.model} has been driven ${distance} miles to run erracnds`)
+        return this
+    }
+}
+
+const myCar = new Car("Tesla", "Model-S", 2021, "0", "Rapid Blue")
+myCar.carInfo()
+myCar.driveToWork(15)
+console.log(myCar.milage)
+myCar.driveToWork(20)
+console.log(myCar.milage)
+myCar.driveAroundWorld(2300)
+console.log(myCar.milage)
+myCar.driveAroundWorld(50)
+console.log(myCar.milage)
+
+
+
 // HARD - Write a function that takes in a string and returns a boolean value whether or not the string contains a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
 
 // let textInput = prompt("Please enter in a set of brackets of your choice ex. ( {}, [], () ) ")
