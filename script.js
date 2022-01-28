@@ -45,7 +45,7 @@ function checkArray(num){
     }
     return num !== 1;
 }
-console.log(checkArray(19))
+// console.log(checkArray(19))
 
 
 
@@ -94,49 +94,57 @@ console.log(isAnagram("drew","werd"))
 console.log(isAnagram("drew","word"))
 
 // Medium 3 - Write a function that takes in two numbers and determines the largest positive integer that divides the two numbers without a remainder.
-/*
-    function gcd(x,y){
-        let answer
-        let counter = 1;
-        //calculate the biggest number
-       if(x<y)
-        y<x
-        //finds all numbers that divide the two numbers without a remander
-        while(counter<=biggestNum){
-            console.log(counter)
-            counter = counter + 1
-        }
-        //return a number
-        return answer
-    }
-gcd(10,5)
-*/
 
-let bigInt = function(x, y) {
-    while( x != y ){
-        if ( x > y){
-            x = x - y
-        }else {
-            y = y - x
-        }
+function gcd2(x, y) {
+    let counter = 1;
+    //calculate the biggest number so we know which ones to try
+    const biggestTry = Math.min(x,y)
+    let possibleGCD = 1
+    //finds all numbers that divide the two numbers without a remander
+    while (counter <= biggestTry) {
+        //for this loop try to divide a number into both x and y
+        //divide x by number we're trying to see if there is a remainder
+        //divide y by same number trying to see if there is a remainder
+        //if there is no remainder from x and from y then we know this is a common denominator
+       if( x % counter === 0 && y % counter === 0 ){
+        // for now since we're counting up this would be the gcd
+        possibleGCD = counter
+       }
+        //remember it but it might not be the BIGGEST common denominator
+        // console.log(counter)
+        counter = counter + 1
     }
-    return y
+    //return the biggest common denoinator that we found inside the loop
+    return possibleGCD
 }
 
-console.log(bigInt(10, 2))
+console.log(gcd2(45, 90))
+
+// let bigInt = function(x, y) {
+//     while( x != y ){
+//         if ( x > y){
+//             x = x - y
+//         }else {
+//             y = y - x
+//         }
+//     }
+//     return y
+// }
+
+// console.log(bigInt(10, 2))
 
 // MEDIUM 4 - Create a car object with the items: Make, Model, Year, Milage, and Color. Then create 3 methods in the object; A driveToWork method, driveAroundTheWorld method, and runErrands method. Each of these methods should affect the car’s mileage adding to it each time and console logging the old mileage and the new mileage.
-/*
-    let car = {
+
+let car = {
         make:"Tesla",
         model: "Model-S",
         year: "2020",
-        milage: "20,000",
+        milage: 20000,
         color: "Black",
       };
      let driveToWork = () => {
         alert(`Old Milage is ${car.milage}`);
-        car.milage = car.milage + 15;
+        car.milage =  car.milage + 15;
         console.log(`New milage is ${car.milage}`);
       };
       let driveAroundTheWorld  =() => {
@@ -149,73 +157,70 @@ console.log(bigInt(10, 2))
         car.milage = car.milage + 45;
         console.log(`New milage is ${car.milage}`);
       };
-    //   console.log(car.driveToWork);
-    //   console.log(driveAroundTheWorld);
-    //   console.log(runErrands);
+
     driveToWork(car)
     driveAroundTheWorld(car)
     runErrands(car)
-*/
 
-class Car {
-    constructor(make, model, year, milage, color){
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.milage = 0;
-        this.color = color;
-    }
-    carInfo(){
-        console.log(`You drive a ${this.make} ${this.model} from ${this.year} with ${this.milage} with an awesome color of ${this.color}`)
-    }
+// class Car1 {
+//     constructor(make, model, year, milage, color){
+//         this.make = make;
+//         this.model = model;
+//         this.year = year;
+//         this.milage = 0;
+//         this.color = color;
+//     }
+//     carInfo(){
+//         console.log(`You drive a ${this.make} ${this.model} from ${this.year} with ${this.milage} with an awesome color of ${this.color}`)
+//     }
 
-    driveToWork(distance){
-        this.milage += distance
-        console.log(`${this.make} ${this.model} has been driven ${distance} miles`)
-        return this
-    }
+//     driveToWork(distance){
+//         this.milage += distance
+//         console.log(`${this.make} ${this.model} has been driven ${distance} miles`)
+//         return this
+//     }
 
-    driveAroundWorld(distance){
-        this.milage += distance
-        console.log(`${this.make} ${this.model} has been driven ${distance} miles around the world`)
-        return this
-    }
-    runArrands(){
-        this.milage += distance
-        console.log(`${this.make} ${this.model} has been driven ${distance} miles to run erracnds`)
-        return this
-    }
-}
+//     driveAroundWorld(distance){
+//         this.milage += distance
+//         console.log(`${this.make} ${this.model} has been driven ${distance} miles around the world`)
+//         return this
+//     }
+//     runArrands(){
+//         this.milage += distance
+//         console.log(`${this.make} ${this.model} has been driven ${distance} miles to run erracnds`)
+//         return this
+//     }
+// }
 
-const myCar = new Car("Tesla", "Model-S", 2021, "0", "Rapid Blue")
-myCar.carInfo()
-myCar.driveToWork(15)
-console.log(myCar.milage)
-myCar.driveToWork(20)
-console.log(myCar.milage)
-myCar.driveAroundWorld(2300)
-console.log(myCar.milage)
-myCar.driveAroundWorld(50)
-console.log(myCar.milage)
+// const myCar = new Car1("Tesla", "Model-S", 2021, "0", "Rapid Blue")
+// myCar.carInfo()
+// myCar.driveToWork(15)
+// console.log(myCar.milage)
+// myCar.driveToWork(20)
+// console.log(myCar.milage)
+// myCar.driveAroundWorld(2300)
+// console.log(myCar.milage)
+// myCar.driveAroundWorld(50)
+// console.log(myCar.milage)
 
 
 
 // HARD - Write a function that takes in a string and returns a boolean value whether or not the string contains a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
 
-// let textInput = prompt("Please enter in a set of brackets of your choice ex. ( {}, [], () ) ")
-// let findBracket = (str) => {
-//     let openPos = -1
-//     let closePos = -1
-//     if (str.indexOf("(") >= 0) {
-//         openPos = str.indexOf("(")
-//         closePos = str.indexOf(")")
-//     } else if (str.indexOf("{") >= 0) {
-//         openPos = str.indexOf("{")
-//         closePos = str.indexOf("}")
-//     } else if (str.indexOf("[") >= 0) {
-//         openPos = str.indexOf("[")
-//         closePos = str.indexOf("]")
-//     }
-//     return openPos < closePos
-// }
-// console.log(findBracket(textInput))
+let textInput = prompt("Please enter in a set of brackets of your choice ex. ( {}, [], () ) ")
+let findBracket = (str) => {
+    let openPos = -1
+    let closePos = -1
+    if (str.indexOf("(") >= 0) {
+        openPos = str.indexOf("(")
+        closePos = str.indexOf(")")
+    } else if (str.indexOf("{") >= 0) {
+        openPos = str.indexOf("{")
+        closePos = str.indexOf("}")
+    } else if (str.indexOf("[") >= 0) {
+        openPos = str.indexOf("[")
+        closePos = str.indexOf("]")
+    }
+    return openPos < closePos
+}
+console.log(findBracket(textInput))
