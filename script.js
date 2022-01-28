@@ -95,6 +95,42 @@ console.log(isAnagram("drew","word"))
 
 // Medium 3 - Write a function that takes in two numbers and determines the largest positive integer that divides the two numbers without a remainder.
 
+/*
+function gcd(x, y) {
+    let answer
+    let counter = 1;
+    let biggestNum
+    //calculate the biggest number so we know which ones to try
+    if (x > y) {
+        biggestNum = x
+    } else {
+        biggestNum = y
+    }
+    let possibleGCD = 1
+    //finds all numbers that divide the two numbers without a remander
+    while (counter <= biggestNum) {
+        //for this loop try to divide a number into both x and y
+        //divide x by number we're trying to see if there is a remainder
+        xRemainder = x % counter
+        //divide y by same number trying to see if there is a remainder
+        yRemainder = y % counter
+        //if there is no remainder from x and from y then we know this is a common denominator
+       if( xRemainder === 0 && yRemainder === 0 ){
+        // for now since we're counting up this would be the gcd
+        possibleGCD = counter
+       }
+        //remember it but it might not be the BIGGEST common denominator
+        // console.log(counter)
+        counter = counter + 1
+    }
+    //return the biggest common denoinator that we found inside the loop
+    return possibleGCD
+}
+console.log(gcd(45, 90))
+*/
+
+// cleaning up code // 
+
 function gcd2(x, y) {
     let counter = 1;
     //calculate the biggest number so we know which ones to try
